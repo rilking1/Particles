@@ -1,8 +1,7 @@
-@charset "UTF-8";
 body {
   margin: 0;
-  overflow: hidden; /* Забезпечує, що частинки не створюють прокрутку */
-  background: #000; /* Темний фон для яскравих частинок */
+  overflow: hidden;
+  background: #000;
 }
 
 #particle-container {
@@ -16,7 +15,11 @@ body {
   position: absolute;
   width: 5px;
   height: 5px;
-  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
   border-radius: 50%;
   pointer-events: none;
   animation: fly 1s ease-out forwards;
@@ -31,4 +34,4 @@ body {
     transform: translate(var(--move-x), var(--move-y));
     opacity: 0;
   }
-}/*# sourceMappingURL=styles.css.map */
+}

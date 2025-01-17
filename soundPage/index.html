@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Звук при введенні тексту</title>
+  </head>
+  <body>
+    <h1>Введіть текст</h1>
+    <input type="text" id="textInput" placeholder="Друкуйте тут..." />
+    <script>
+      const textInput = document.getElementById("textInput");
+      let soundIndex = 1;
+      const maxSounds = 7;
+      let resetTimeout;
+      textInput.addEventListener("input", () => {
+        clearTimeout(resetTimeout);
+        const typingSound = new Audio(`../sounds/click${soundIndex}.mp3`);
+        typingSound.play();
+        soundIndex = soundIndex < maxSounds ? soundIndex + 1 : maxSounds;
+        resetTimeout = setTimeout(() => {
+          soundIndex = 1;
+        }, 200);
+      });
+    </script>
+  </body>
+</html>

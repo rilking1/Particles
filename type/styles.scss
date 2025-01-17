@@ -1,0 +1,54 @@
+.textAreaWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  justify-content: center;
+}
+
+textarea {
+  margin-top: 50px;
+  width: 300px;
+  height: 150px;
+  font-size: 16px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.05s ease;
+}
+
+textarea.shake {
+  animation: dynamicShake 0.5s ease;
+}
+
+@keyframes dynamicShake {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(calc(var(--shake-x, 0px)), calc(var(--shake-y, 0px)));
+  }
+  50% {
+    transform: translate(
+      calc(var(--shake-x, 0px) * -1),
+      calc(var(--shake-y, 0px) * -1)
+    );
+  }
+  75% {
+    transform: translate(calc(var(--shake-x, 0px)), calc(var(--shake-y, 0px)));
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+#particleCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
